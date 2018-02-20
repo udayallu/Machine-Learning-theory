@@ -8,18 +8,18 @@
 Y =f(X)+ε.
 - Here f is some fixed but unknown function of X1, . . . , Xp, and ε is a random error term, which is independent of X and has mean zero. In this formula- tion, f represents the systematic information that X provides about Y .
 
-### Why Estimate f?
+## Why Estimate f?
 -There are two main reasons that we may wish to estimate f: prediction and inference. We discuss each in turn.
-####Prediction
+### Prediction
 -In many situations, a set of inputs X are readily available, but the output Y cannot be easily obtained. In this setting, since the error term averages to zero, we can predict Y using ˆY = ^f(X)
 - where fˆ represents our estimate for f , and Yˆ represents the resulting pre- diction for Y . In this setting, **fˆ** is often treated as a black box, in the sense **ˆ** that one is not typically concerned with the exact form of f, provided that
 it yields accurate predictions for Y .
-### How Do We Estimate f?
+## How Do We Estimate f?
 we explore many linear and non-linear approaches for estimating f. However, these methods generally share certain charac- teristics.
 
-Our goal is to apply a statistical learning method to the training data training data in order to estimate the unknown function f. In other words, we want to find a function ^f such thatY ≈^f(X)for any observation(X,Y).Broadly speaking, most statistical learning methods for this task can be character- ized as either parametric or non-parametric. We now briefly discuss these two types of approaches.
+Our goal is to apply a statistical learning method to the training data training data in order to estimate the unknown function f. In other words, we want to find a function ^f such thatY ≈^f(X)for any observation(X,Y).Broadly speaking, most statistical learning methods for this task can be character- ized as either **parametric** or **non-parametric**. We now briefly discuss these two types of approaches.
 
-### Parametric Methods
+## Parametric Methods
 - Parametric methods involve a two-step model-based approach.
 1. First, we make an assumption about the functional form, or shape, of f. For example, one very simple assumption is that f is linear in X:f(X) = β0 +β1X1 +β2X2 +...+βpXp.
 
@@ -34,11 +34,11 @@ The model-based approach just described is referred to as parametric; it reduces
 Assuming a parametric form for f simplifies the problem of estimating f because it is generally much easier to estimate a set of pa- rameters, such as β0,β1,...,βp in the linear model (2.4), than it is to fit an entirely arbitrary function f.
 
 ![alt text](https://github.com/udayallu/Regression/blob/master/pics/linear%20model%20fit%20with%20lsqure%20m.png)
-**FIGURE 2.4. A linear model fit by least squares to the Income data from Fig- ure 2.3. The observations are shown in red, and the yellow plane indicates the least squares fit to the data.
+- **FIGURE 2.4. A linear model fit by least squares to the Income data from Fig- ure 2.3. The observations are shown in red, and the yellow plane indicates the least squares fit to the data.
 
 
 ![alt text](https://github.com/udayallu/Regression/blob/master/pics/smoot%20thin-plate%20spline%20fit.png)
-**Figure 2.4 shows an example of the parametric approach applied to the Income data from Figure 2.3. We have fit a linear model of the form income ≈ β0 + β1 × education + β2 × seniority.
+- **Figure 2.4 shows an example of the parametric approach applied to the Income data from Figure 2.3. We have fit a linear model of the form income ≈ β0 + β1 × education + β2 × seniority.
 
 Since we have assumed a linear relationship between the response and the two predictors, the entire fitting problem reduces to estimating β0, β1, and β2, which we do using least squares linear regression. Comparing Figure 2.3 to Figure 2.4, we can see that the linear fit given in Figure 2.4 is not quite right: the true f has some curvature that is not captured in the linear fit. However, the linear fit still appears to do a reasonable job of capturing the positive relationship between years of education and income, as well as the slightly less positive relationship between seniority and income. It may be that with such a small number of observations, this is the best we can do.
 
@@ -49,7 +49,7 @@ Non-parametric methods do not make explicit assumptions about the func- tional f
 An example of a non-parametric approach to fitting the Income data is shown in Figure 2.5. A thin-plate spline is used to estimate f. This ap- proach does not impose any pre-specified model on f. It instead attempts to produce an estimate for f that is as close as possible to the observed data, subject to the fit—that is, the yellow surface in Figure 2.5—being smooth.
 
 ![alt text](https://github.com/udayallu/Regression/blob/master/pics/rouh%20line%20plate.png)
-**FIGURE 2.6. A rough thin-plate spline fit to the Income data from Figure 2.3. This fit makes zero errors on the training data.
+- **FIGURE 2.6. A rough thin-plate spline fit to the Income data from Figure 2.3. This fit makes zero errors on the training data.
 
 
 In this case, the non-parametric fit has produced a remarkably ac- curate estimate of the true f shown in Figure 2.3. In order to fit a thin-plate spline, the data analyst must select a level of smoothness. Figure 2.6 shows the same thin-plate spline fit using a lower level of smoothness, allowing for a rougher fit. The resulting estimate fits the observed data perfectly! However, the spline fit shown in Figure 2.6 is far more variable than the true function f, from Figure 2.3. This is an example of overfitting the data, which we discussed previously. It is an undesirable situation because the fit obtained will not yield accurate estimates of the response on new observations that were not part of the original training data set. We dis- cuss methods for choosing the correct amount of smoothness in Chapter 5. Splines are discussed in Chapter 7.
