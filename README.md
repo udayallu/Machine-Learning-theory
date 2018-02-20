@@ -33,8 +33,11 @@ The model-based approach just described is referred to as parametric; it reduces
 
 Assuming a parametric form for f simplifies the problem of estimating f because it is generally much easier to estimate a set of pa- rameters, such as β0,β1,...,βp in the linear model (2.4), than it is to fit an entirely arbitrary function f.
 
+![alt text](https://github.com/udayallu/Regression/blob/master/pics/linear%20model%20fit%20with%20lsqure%20m.png)
 **FIGURE 2.4. A linear model fit by least squares to the Income data from Fig- ure 2.3. The observations are shown in red, and the yellow plane indicates the least squares fit to the data.
 
+
+![alt text](https://github.com/udayallu/Regression/blob/master/pics/smoot%20thin-plate%20spline%20fit.png)
 **Figure 2.4 shows an example of the parametric approach applied to the Income data from Figure 2.3. We have fit a linear model of the form income ≈ β0 + β1 × education + β2 × seniority.
 
 Since we have assumed a linear relationship between the response and the two predictors, the entire fitting problem reduces to estimating β0, β1, and β2, which we do using least squares linear regression. Comparing Figure 2.3 to Figure 2.4, we can see that the linear fit given in Figure 2.4 is not quite right: the true f has some curvature that is not captured in the linear fit. However, the linear fit still appears to do a reasonable job of capturing the positive relationship between years of education and income, as well as the slightly less positive relationship between seniority and income. It may be that with such a small number of observations, this is the best we can do.
@@ -45,7 +48,7 @@ Non-parametric methods do not make explicit assumptions about the func- tional f
 
 An example of a non-parametric approach to fitting the Income data is shown in Figure 2.5. A thin-plate spline is used to estimate f. This ap- proach does not impose any pre-specified model on f. It instead attempts to produce an estimate for f that is as close as possible to the observed data, subject to the fit—that is, the yellow surface in Figure 2.5—being smooth.
 
-
+![alt text](https://github.com/udayallu/Regression/blob/master/pics/rouh%20line%20plate.png)
 **FIGURE 2.6. A rough thin-plate spline fit to the Income data from Figure 2.3. This fit makes zero errors on the training data.
 
 
